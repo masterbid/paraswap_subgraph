@@ -1,0 +1,38 @@
+specVersion: 0.0.1
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: AugustusSwapper
+    network: mainnet
+    source:
+      address: "0x86969d29F5fd327E1009bA66072BE22DB6017cC6"
+      abi: AugustusSwapper
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.2
+      language: wasm/assemblyscript
+      entities:
+        - Paused
+        - Unpaused
+        - Swapped
+        - Donation
+        - FeeTaken
+        - OwnershipTransferred
+      abis:
+        - name: AugustusSwapper
+          file: ./abis/AugustusSwapper.json
+      eventHandlers:
+        - event: Paused()
+          handler: handlePaused
+        - event: Unpaused()
+          handler: handleUnpaused
+        - event: Swapped(address,indexed address,indexed address,indexed address,uint256,uint256,uint256,string)
+          handler: handleSwapped
+        - event: Donation(indexed address,uint256)
+          handler: handleDonation
+        - event: FeeTaken(uint256,uint256,uint256)
+          handler: handleFeeTaken
+        - event: OwnershipTransferred(indexed address,indexed address)
+          handler: handleOwnershipTransferred
+      file: ./src/mapping.ts
