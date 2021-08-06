@@ -1,6 +1,6 @@
 specVersion: 0.0.2
 schema:
-  file: ./schema.graphql
+  file: schema.graphql
 dataSources:
   - kind: ethereum/contract
     name: AugustusSwapperV4
@@ -25,13 +25,15 @@ dataSources:
         - buyOnUniswapFork
       abis:
         - name: AugustusSwapperV4
-          file: ./abis/AugustusSwapperV4.json
+          file: AugustusSwapperV4\abis\AugustusSwapperV4.json
         - name: ERC20
-          file: ./abis/IERC20.json
+          file: AugustusSwapperV4\abis\IERC20.json
       eventHandlers:
-        - event: Bought(address,indexed address,indexed address,indexed address,uint256,uint256,string)
+        - event: Bought(address,indexed address,indexed address,indexed
+            address,uint256,uint256,string)
           handler: handleBought
-        - event: Swapped(address,indexed address,indexed address,indexed address,uint256,uint256,uint256,string)
+        - event: Swapped(address,indexed address,indexed address,indexed
+            address,uint256,uint256,uint256,string)
           handler: handleSwapped
         - event: FeeTaken(uint256,uint256,uint256)
           handler: handleFeeTaken
@@ -44,6 +46,4 @@ dataSources:
           handler: handleBuyOnUniswap
         - function: buyOnUniswapFork(address,bytes32,uint256,uint256,address[],uint8)
           handler: handleBuyOnUniswapFork
-      file: ./src/mappingV4.ts
-  
-
+      file: AugustusSwapperV4\AugustusSwapperV4.wasm
