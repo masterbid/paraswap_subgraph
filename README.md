@@ -56,7 +56,7 @@ ParaSwap aggregates decentralized exchanges and other DeFi services in one compr
   **initiator:** *The account info of the initiator of the transaction*  
   **amountIn:** *The amount used for the swap in bigDecimal*   
   **amountOutMin:** *The minimum amount received at the swap in bigDecimal*  
-  **path:** *List of addresses involved in the swap in bytes*  
+  **path:** *List of tokens involved in the swap*  
   **referrer:** *Referrer id in string*  
   **timestamp:** *The timestamp of the transaction in seconds(BigInt)*  
   **transaction:** *The hash of the transaction in bytes*  
@@ -68,7 +68,7 @@ ParaSwap aggregates decentralized exchanges and other DeFi services in one compr
   **initCode:**   
   **amountIn:** *The amount used for the swap in bigDecimal*   
   **amountOutMin:** *The minimum amount received at the swap in bigDecimal*  
-  **path:** *List of addresses involved in the swap in bytes*  
+  **path:** *List of tokens involved in the swap*  
   **referrer:** *Referrer id in string*   
   **timestamp:** *The timestamp of the transaction in seconds(BigInt)*  
   **transaction:** *The hash of the transaction in bytes*  
@@ -78,7 +78,7 @@ ParaSwap aggregates decentralized exchanges and other DeFi services in one compr
   **initiator:** *The account info of the initiator of the transaction*  
   **amountInMax:** *The maximum amount used for the purchase in bigDecimal*   
   **amountOut:** *The minimum amount received at the purchase in bigDecimal*  
-  **path:** *List of addresses involved in the swap in bytes*  
+  **path:** *List of tokens involved in the swap*  
   **referrer:** *Referrer id in string*  
   **timestamp:** *The timestamp of the transaction in seconds(BigInt)*  
   **transaction:** *The hash of the transaction in bytes*  
@@ -90,7 +90,7 @@ ParaSwap aggregates decentralized exchanges and other DeFi services in one compr
   **initCode:**   
   **amountInMax:** *The maximum amount used for the purchase in bigDecimal*   
   **amountOut:** *The minimum amount received at the purchase in bigDecimal*  
-  **path:** *List of addresses involved in the swap in bytes*  
+  **path:** *List of tokens involved in the swap*  
   **referrer:** *Referrer id in string*  
   **timestamp:** *The timestamp of the transaction in seconds(BigInt)*  
   **transaction:** *The hash of the transaction in bytes*  

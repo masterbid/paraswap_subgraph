@@ -149,7 +149,7 @@ export function handleSwapOnUniswap(call: SwapOnUniswapCall): void {
         swapOnUni.initiator = initiator.id
         swapOnUni.amountIn = amountIn
         swapOnUni.amountOutMin = amountOutMin
-        swapOnUni.path = path.map<Bytes>(t => t)
+        swapOnUni.path = path.map<string>(t => getOrCreateToken(t).id)
         swapOnUni.referrer = referrer
         swapOnUni.timestamp = timestamp
         swapOnUni.transaction = transaction
@@ -164,8 +164,7 @@ export function handleSwapOnUniswapFork(call: SwapOnUniswapForkCall): void {
     initiator.save()
     let amountIn = toDecimal(call.inputs.amountIn, decimals)
     let amountOutMin = toDecimal(call.inputs.amountOutMin, decimals)
-    let factory = getOrCreateToken(call.inputs.factory)
-    factory.save()
+    let factory = call.inputs.factory
     let initCode = call.inputs.initCode
     let path = call.inputs.path
     let referrer = call.inputs.referrer
@@ -179,9 +178,9 @@ export function handleSwapOnUniswapFork(call: SwapOnUniswapForkCall): void {
         swapOnUniFork.initiator = initiator.id
         swapOnUniFork.amountIn = amountIn
         swapOnUniFork.amountOutMin = amountOutMin
-        swapOnUniFork.factory = factory.id
+        swapOnUniFork.factory = factory
         swapOnUniFork.initCode = initCode
-        swapOnUniFork.path = path.map<Bytes>(t => t)
+        swapOnUniFork.path = path.map<string>(t => getOrCreateToken(t).id)
         swapOnUniFork.referrer = referrer
         swapOnUniFork.timestamp = timestamp
         swapOnUniFork.transaction = transaction
@@ -209,7 +208,7 @@ export function handleBuyOnUniswap(call: BuyOnUniswapCall): void {
         buyOnUni.initiator = initiator.id
         buyOnUni.amountInMax = amountInMax
         buyOnUni.amountOut = amountOut
-        buyOnUni.path = path.map<Bytes>(t => t)
+        buyOnUni.path = path.map<string>(t => getOrCreateToken(t).id)
         buyOnUni.referrer = referrer
         buyOnUni.timestamp = timestamp
         buyOnUni.transaction = transaction
@@ -225,8 +224,7 @@ export function handleBuyOnUniswapFork(call: BuyOnUniswapForkCall): void {
     initiator.save()
     let amountInMax = toDecimal(call.inputs.amountInMax, decimals)
     let amountOut = toDecimal(call.inputs.amountOut, decimals)
-    let factory = getOrCreateToken(call.inputs.factory)
-    factory.save()
+    let factory = call.inputs.factory
     let initCode = call.inputs.initCode
     let path = call.inputs.path
     let referrer = call.inputs.referrer
@@ -240,9 +238,9 @@ export function handleBuyOnUniswapFork(call: BuyOnUniswapForkCall): void {
         buyOnUniFork.initiator = initiator.id
         buyOnUniFork.amountInMax = amountInMax
         buyOnUniFork.amountOut = amountOut
-        buyOnUniFork.factory = factory.id
+        buyOnUniFork.factory = factory
         buyOnUniFork.initCode = initCode
-        buyOnUniFork.path = path.map<Bytes>(t => t)
+        buyOnUniFork.path = path.map<string>(t => getOrCreateToken(t).id)
         buyOnUniFork.referrer = referrer
         buyOnUniFork.timestamp = timestamp
         buyOnUniFork.transaction = transaction

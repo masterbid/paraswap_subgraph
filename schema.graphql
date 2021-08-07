@@ -10,7 +10,7 @@ type Account @entity {
 }
 
 type Token @entity {
-  id: ID!
+  id: ID! #<Token address in hex string>
   address: Bytes! #<Token address>
   decimals: Int #<Number of decimals the token uses>
   name: String #<Human-readable name of the token>
@@ -50,61 +50,61 @@ type Fee @entity {
   transaction: Bytes! #<Hash of the transaction>
   feeWallet: Account! #<Fee wallet account>
   patner: Account #<Partners wallet account>
-  fee: BigDecimal! #<Fee decduction>
+  fee: BigDecimal! #<Fee deduction>
   partnerShare: BigDecimal! #<Partner share of the fee>
   paraswapShare: BigDecimal! #<Paraswap share of the fee>
   timestamp: BigInt! #<Timestamp when take fee transaction>
 }
 
 type swapOnUniswap @entity {
-  id: ID! #<>
-  initiator: Account! #<>
-  amountIn: BigDecimal! #<>
-  amountOutMin: BigDecimal! #<>
-  path: [Bytes!] #<>
-  referrer: Int! #<>
-  timestamp: BigInt! #<>
-  transaction: Bytes! #<>
-  block: BigInt! #<>
+  id: ID!  #<Transaction Hash>
+  initiator: Account! #<Transaction initiator account>
+  amountIn: BigDecimal! #<The amount used for the swap in bigDecimal>
+  amountOutMin: BigDecimal! #<The minimum amount received at the swap in bigDecimal>
+  path: [Token]! #<List of addresses involved in the swap in bytes>
+  referrer: Int! #<Referrer info>
+  timestamp: BigInt! #<Timestamp of the transaction>
+  transaction: Bytes! #<hash of the transaction>
+  block: BigInt! #<The block number where the transaction occurred>
 }
 
 type swapOnUniswapFork @entity {
-  id: ID! #<>
-  initiator: Account! #<>
-  factory: Token! #<>
+  id: ID! #<Transaction Hash>
+  initiator: Account! #<The account info of the initiator of the transaction>
+  factory: Bytes! #<Factory address of uniswap fork>
   initCode: Bytes! #<>
-  amountIn: BigDecimal! #<>
-  amountOutMin: BigDecimal! #<>
-  path: [Bytes!] #<>
-  referrer: Int! #<>
-  timestamp: BigInt! #<>
-  transaction: Bytes! #<>
-  block: BigInt! #<>
+  amountIn: BigDecimal! #<The amount used for the swap in bigDecimal>
+  amountOutMin: BigDecimal! #<The minimum amount received at the swap in bigDecimal>
+  path: [Token]! #<List of tokens involved in the swap>
+  referrer: Int! #<Referrer id in string>
+  timestamp: BigInt! #<The timestamp of the transaction in seconds(BigInt)>
+  transaction: Bytes! #<The hash of the transaction in bytes>
+  block: BigInt! #<The block number where the transaction occurred>
 }
 
 type buyOnUniswap @entity {
-  id: ID! #<>
-  initiator: Account! #<>
-  amountInMax: BigDecimal! #<>
-  amountOut: BigDecimal! #<>
-  path: [Bytes!] #<>
-  referrer: Int! #<>
-  timestamp: BigInt! #<>
-  transaction: Bytes! #<>
-  block: BigInt! #<>
+  id: ID! #<The hash of the transaction in hex string>
+  initiator: Account! #<The account info of the initiator of the transaction>
+  amountInMax: BigDecimal! #<The maximum amount used for the purchase in bigDecimal>
+  amountOut: BigDecimal! #<The minimum amount received at the purchase in bigDecimal>
+  path: [Token]! #<List of tokens involved in the purchase>
+  referrer: Int! #<Referrer id in string>
+  timestamp: BigInt! #<The timestamp of the transaction in seconds(BigInt)>
+  transaction: Bytes! #<The hash of the transaction in bytes>
+  block: BigInt! #<The block number where the transaction occurred>
 }
 
 type buyOnUniswapFork @entity {
-  id: ID! #<>
-  initiator: Account! #<>
-  factory: Token! #<>
+  id: ID! #<The hash of the transaction in hex string>
+  initiator: Account! #<The account info of the initiator of the transaction>
+  factory: Bytes! #<Factory address of uniswap fork>
   initCode: Bytes! #<>
-  amountInMax: BigDecimal! #<>
-  amountOut: BigDecimal! #<>
-  path: [Bytes!] #<>
-  referrer: Int! #<>
-  timestamp: BigInt! #<>
-  transaction: Bytes! #<>
-  block: BigInt! #<>
+  amountInMax: BigDecimal! #<The maximum amount used for the purchase in bigDecimal>
+  amountOut: BigDecimal! #<The minimum amount received at the purchase in bigDecimal>
+  path: [Token]! #<List of addresses involved in the swap in bytes>
+  referrer: Int! #<Referrer id in string>
+  timestamp: BigInt! #<The timestamp of the transaction in seconds(BigInt)>
+  transaction: Bytes! #<The hash of the transaction in bytes>
+  block: BigInt! #<The block number where the transaction occurred>
 }
 

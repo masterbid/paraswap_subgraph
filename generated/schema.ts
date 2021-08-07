@@ -598,21 +598,13 @@ export class swapOnUniswap extends Entity {
     this.set("amountOutMin", Value.fromBigDecimal(value));
   }
 
-  get path(): Array<Bytes> | null {
+  get path(): Array<string> {
     let value = this.get("path");
-    if (value === null || value.kind == ValueKind.NULL) {
-      return null;
-    } else {
-      return value.toBytesArray();
-    }
+    return value.toStringArray();
   }
 
-  set path(value: Array<Bytes> | null) {
-    if (value === null) {
-      this.unset("path");
-    } else {
-      this.set("path", Value.fromBytesArray(value as Array<Bytes>));
-    }
+  set path(value: Array<string>) {
+    this.set("path", Value.fromStringArray(value));
   }
 
   get referrer(): i32 {
@@ -691,13 +683,13 @@ export class swapOnUniswapFork extends Entity {
     this.set("initiator", Value.fromString(value));
   }
 
-  get factory(): string {
+  get factory(): Bytes {
     let value = this.get("factory");
-    return value.toString();
+    return value.toBytes();
   }
 
-  set factory(value: string) {
-    this.set("factory", Value.fromString(value));
+  set factory(value: Bytes) {
+    this.set("factory", Value.fromBytes(value));
   }
 
   get initCode(): Bytes {
@@ -727,21 +719,13 @@ export class swapOnUniswapFork extends Entity {
     this.set("amountOutMin", Value.fromBigDecimal(value));
   }
 
-  get path(): Array<Bytes> | null {
+  get path(): Array<string> {
     let value = this.get("path");
-    if (value === null || value.kind == ValueKind.NULL) {
-      return null;
-    } else {
-      return value.toBytesArray();
-    }
+    return value.toStringArray();
   }
 
-  set path(value: Array<Bytes> | null) {
-    if (value === null) {
-      this.unset("path");
-    } else {
-      this.set("path", Value.fromBytesArray(value as Array<Bytes>));
-    }
+  set path(value: Array<string>) {
+    this.set("path", Value.fromStringArray(value));
   }
 
   get referrer(): i32 {
@@ -838,21 +822,13 @@ export class buyOnUniswap extends Entity {
     this.set("amountOut", Value.fromBigDecimal(value));
   }
 
-  get path(): Array<Bytes> | null {
+  get path(): Array<string> {
     let value = this.get("path");
-    if (value === null || value.kind == ValueKind.NULL) {
-      return null;
-    } else {
-      return value.toBytesArray();
-    }
+    return value.toStringArray();
   }
 
-  set path(value: Array<Bytes> | null) {
-    if (value === null) {
-      this.unset("path");
-    } else {
-      this.set("path", Value.fromBytesArray(value as Array<Bytes>));
-    }
+  set path(value: Array<string>) {
+    this.set("path", Value.fromStringArray(value));
   }
 
   get referrer(): i32 {
@@ -931,13 +907,13 @@ export class buyOnUniswapFork extends Entity {
     this.set("initiator", Value.fromString(value));
   }
 
-  get factory(): string {
+  get factory(): Bytes {
     let value = this.get("factory");
-    return value.toString();
+    return value.toBytes();
   }
 
-  set factory(value: string) {
-    this.set("factory", Value.fromString(value));
+  set factory(value: Bytes) {
+    this.set("factory", Value.fromBytes(value));
   }
 
   get initCode(): Bytes {
@@ -967,21 +943,13 @@ export class buyOnUniswapFork extends Entity {
     this.set("amountOut", Value.fromBigDecimal(value));
   }
 
-  get path(): Array<Bytes> | null {
+  get path(): Array<string> {
     let value = this.get("path");
-    if (value === null || value.kind == ValueKind.NULL) {
-      return null;
-    } else {
-      return value.toBytesArray();
-    }
+    return value.toStringArray();
   }
 
-  set path(value: Array<Bytes> | null) {
-    if (value === null) {
-      this.unset("path");
-    } else {
-      this.set("path", Value.fromBytesArray(value as Array<Bytes>));
-    }
+  set path(value: Array<string>) {
+    this.set("path", Value.fromStringArray(value));
   }
 
   get referrer(): i32 {
